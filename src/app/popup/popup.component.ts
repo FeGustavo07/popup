@@ -19,9 +19,7 @@ export class PopupComponent implements OnInit{
 
   nomeDosComponents: string[] = []
 
-  versaoDosComponents: string[] = []
-
-  versaoDosComponentsNumber: number[] = []
+  versaoDosComponents: any[] = []
 
   constructor() { }
 
@@ -56,7 +54,6 @@ export class PopupComponent implements OnInit{
     this.componentesQueDevemSerAlterados.length = 0
     this.nomeDosComponents.length = 0
     this.versaoDosComponents.length = 0
-    this.versaoDosComponentsNumber.length = 0
 
     this.objComponents.forEach(element => {
       element.selected == true ? this.componentesQueDevemSerAlterados.push(element) :
@@ -72,16 +69,17 @@ export class PopupComponent implements OnInit{
     console.log(this.nomeDosComponents)
 
     this.nomeDosComponents.forEach(element => {
-      this.versaoDosComponents.push(element.slice(element.length - 2))
+      this.versaoDosComponents.push({nome: element, versao: parseInt(element.slice(element.length - 2))})
     });
-
-    this.versaoDosComponents.forEach(element => {
-      this.versaoDosComponentsNumber.push(parseInt(element))
-    });
-
-    console.log(this.versaoDosComponentsNumber)
 
     console.log(this.versaoDosComponents)
+
+    this.versaoDosComponents.forEach(element => {
+      if(element.versao > 1) {
+        console.log(element)
+      }
+    });
+
   }
     
 }

@@ -1,0 +1,6 @@
+<div *ngFor="let ob of objComponents">
+    <p>{{ob.nome}}</p>
+    <input type="checkbox" [value]="ob.id" [checked]="ob.selected" (change)="onChange($event)">
+</div>
+
+<button (click)="mostrar()">Mostrar</button>

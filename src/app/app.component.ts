@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'projeto-teste-angular';
+  
+  valorPai: string | null = "ABC";
+  nomePai: string | null = null;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  setNome () {
+    this.nomePai = "Gustavo";
+    this.valorPai = null;
+  }
 }
